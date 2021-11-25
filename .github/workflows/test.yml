@@ -36,4 +36,4 @@ jobs:
       - name: Running Fastlane
         uses: maierj/fastlane-action@v2.0.1
         with:
-          lane: 'test'
+          lane: 'generateReleaseBuild'
