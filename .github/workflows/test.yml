@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploying to AppStore
+    name: Testing
     runs-on: ubuntu-latest
     timeout-minutes: 20
     
@@ -24,7 +24,7 @@ jobs:
         ruby-version: 2.7.2
 
     - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      run: chmod +x gradlew
 
     - name: Running Fastlane
       uses: maierj/fastlane-action@v2.0.1
