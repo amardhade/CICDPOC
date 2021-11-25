@@ -13,27 +13,30 @@ jobs:
     name: Testing
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    
+
     steps:
-    - name: Checking out repo
-      uses: actions/checkout@v2
+      - name: Checking out repo
+        uses: actions/checkout@v2
 
-    - name: set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: gradle
+      - name: set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          cache: gradle
 
-    - name: Installing Fastlane Dependencies
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7.2
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      - name: Build with Gradle
+        run: ./gradlew build
 
-    - name: Running Fastlane
-      uses: maierj/fastlane-action@v2.0.1
-      with:
-        lane: 'test'
+#    - name: Installing Fastlane Dependencies
+#      uses: ruby/setup-ruby@v1
+#      with:
+#        ruby-version: 2.7.2
+#
+#    - name: Running Fastlane
+#      uses: maierj/fastlane-action@v2.0.1
+#      with:
+#         lane: 'test'
