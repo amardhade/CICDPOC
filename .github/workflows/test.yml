@@ -1,0 +1,29 @@
+name: Test
+
+on:
+
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions a tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploying to AppStore
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    
+    steps:
+    - name: Checking out repo
+      uses: actions/checkout@v2
+
+    - name: Installing Fastlane Dependencies
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.2
+
+    - name: Running Fastlane
+      uses: maierj/fastlane-action@v2.0.1
+      with:
+        lane: 'test'
