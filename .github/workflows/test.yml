@@ -44,8 +44,8 @@ jobs:
           KEYSTORE_PATH: ${{ secrets.KEYSTORE_PATH }}
 
       - name: Upload Artifacts
-          uses: actions/upload-artifact@v2
-          with:
-            name: Build
-            path: app/build/outputs/apk/release/*
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build
+          path: app/build/outputs/apk/release/*
 
