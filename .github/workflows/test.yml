@@ -37,3 +37,8 @@ jobs:
         uses: maierj/fastlane-action@v2.0.1
         with:
           lane: 'generateReleaseBuild'
+        env:
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEYSTORE_PATH: ${{ secrets.KEYSTORE_PATH }}
